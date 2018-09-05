@@ -51,6 +51,12 @@ const addBonusPoints = (arr) => {
 
 const addCurve = (arr) => {
   // Solution code here...
+  const newArr = [];
+  for(let i in arr){
+      i = arr[i]*1.05;
+      newArr.push(i);
+  }
+  return newArr;
 }
 
 // ------------------------------------------------------------------------------------------------
