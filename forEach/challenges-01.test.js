@@ -97,12 +97,9 @@ const speaker = (message, callback) => {
 
 const addValues = (arr, value) => {
   // Solution code here...
-  const newArr = [];
   for(let i of arr){
     i += value;
-    newArr.push(i);
   }
-  return newArr;
 }
 
 const addNumbers = (num, arr, times, callback) => {
@@ -151,8 +148,11 @@ const removeElements = (input, callback) => {
 
 const removeWithForEach = (input, callback) => {
   // Solution code here...
-}
-
+  input.forEach((number) => {
+    callback(number, input);
+  });
+  return input;
+ }
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 8
 //
