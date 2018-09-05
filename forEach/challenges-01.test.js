@@ -219,6 +219,19 @@ const createList = (availableItems) => {
 
 const fizzbuzz = (arr) => {
   // Solution code here...
+  const newArr = [];
+  arr.forEach((number) => {
+    if(number%3 === 0 && number%5 === 0){
+        newArr.push("Fizz Buzz");
+    }else if(number%5 === 0){
+        newArr.push("Buzz");
+    }else if(number%3 === 0 ){
+        newArr.push("Fizz");
+    }else{
+        newArr.push(number);
+    }
+  });
+  return newArr;
 }
 
 // ------------------------------------------------------------------------------------------------
