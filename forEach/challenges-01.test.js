@@ -97,10 +97,21 @@ const speaker = (message, callback) => {
 
 const addValues = (arr, value) => {
   // Solution code here...
+  const newArr = [];
+  for(let i of arr){
+    i += value;
+    newArr.push(i);
+  }
+  return newArr;
 }
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  let newArr = arr;
+  for(let i in times){
+      newArr = callback(newArr,num);
+  }
+  return newArr;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -119,10 +130,17 @@ const addNumbers = (num, arr, times, callback) => {
 
 const removeOne = (num, input) => {
   // Solution code here...
+    if(num%3 === 2){
+        input.pop();
+    }
 }
 
 const removeElements = (input, callback) => {
   // Solution code here...
+  for(let i of input){
+      callback(i, input);
+  }
+  return input;
 }
 
 // ------------------------------------------------------------------------------------------------
