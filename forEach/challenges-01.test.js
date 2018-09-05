@@ -194,6 +194,13 @@ const removeWithAnon = (input) => {
 
 const createList = (availableItems) => {
   // Solution code here...
+  const list = [];
+  availableItems.forEach((fruit) => {
+      if(fruit.available){
+        list.push(fruit.name);
+      }
+    });
+  return list;
 }
 
 // ------------------------------------------------------------------------------------------------
