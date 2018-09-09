@@ -29,7 +29,15 @@ const isNum = (num) => {
 // ------------------------------------------------------------------------------------------------
 
 const isCapitalized = (string) => {
-  // Solution code here...
+  let regex = /^[A-Z]/;
+  const capitalArr = [];
+  let newStr = string.split(' ');
+  newStr.forEach( (word) => {
+    if(regex.test(word)){
+      capitalArr.push(word);
+    }
+  });
+  return capitalArr;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -134,14 +142,14 @@ describe('Testing challenge 1', () => {
   });
 });
 
-// describe('Testing challenge 2', () => {
-//   test('It should only return words that begin with a capital letter', () => {
-//     const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
+describe('Testing challenge 2', () => {
+  test('It should only return words that begin with a capital letter', () => {
+    const capitalResult = isCapitalized('We only want to Return the Words that begin With a capital Letter');
 
-//     expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
-//     expect(capitalResult.length).toStrictEqual(5);
-//   });
-// });
+    expect(capitalResult).toStrictEqual([ 'We', 'Return', 'Words', 'With', 'Letter' ]);
+    expect(capitalResult.length).toStrictEqual(5);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   let cities = ['Cleveland', 'San Diego', 'Birmingham', 'Seattle', 'Miami', 'New York City', 'Omaha', 'Portland', 'Austin', 'Boston', 'Newport Beach', 'Hoboken'];
