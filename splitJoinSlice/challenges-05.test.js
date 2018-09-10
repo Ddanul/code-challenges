@@ -120,7 +120,11 @@ const listFoods = (recipe) => {
 
 const stepActions = (recipe) => {
   let result = [];
-  // Solution code here...
+  let steps = recipe.steps;
+  steps.forEach( (step) => {
+    let newArr = step.split(' ');
+    result.push(newArr[0]);
+  });
   return result;
 }
 
@@ -243,12 +247,12 @@ describe('Testing challenge 4', () => {
   });
 });
 
-// describe('Testing challenge 5', () => {
-//   test('It should return a list of recipe steps', () => {
-//     expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
-//     expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
-//   });
-// });
+describe('Testing challenge 5', () => {
+  test('It should return a list of recipe steps', () => {
+    expect(stepActions(gruffaloCrumble)).toStrictEqual(['Pre-heat', 'De-prickle', 'Sprinkle', 'Mix', 'Grease', 'Combine', 'Fold', 'Spread', 'Bake']);
+    expect(stepActions(gruffaloCrumble).length).toStrictEqual(9);
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should return a list of foods', () => {
