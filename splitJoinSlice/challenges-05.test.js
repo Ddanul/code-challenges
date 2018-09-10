@@ -203,7 +203,16 @@ const removeLastCharacters = (str, numberOfCharacters) => {
 // ------------------------------------------------------------------------------------------------
 
 const removeVowels = (input) => {
-  // Solution code here...
+  let newArr = input.split('');
+  const answer = [];
+  for(let i=0; i<newArr.length; i++){
+    if(newArr[i]==='a'||newArr[i]==='e'||newArr[i]==='i'||newArr[i]==='o'||newArr[i]==='u'){
+      newArr.splice(i, 1);
+      i--;
+    }
+  };
+  input = newArr.join('');
+  return input;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -306,14 +315,14 @@ describe('Testing challenge 8', () => {
   });
 });
 
-// describe('Testing challenge 9', () => {
-//   test('It should return the string without vowels', () => {
-//     expect(removeVowels('gregor')).toStrictEqual('grgr');
-//     expect(removeVowels('gregor').length).toStrictEqual(4);
-//     expect(removeVowels('asdf')).toStrictEqual('sdf');
-//     expect(removeVowels('why')).toStrictEqual('why');
-//   });
-// });
+describe('Testing challenge 9', () => {
+  test('It should return the string without vowels', () => {
+    expect(removeVowels('gregor')).toStrictEqual('grgr');
+    expect(removeVowels('gregor').length).toStrictEqual(4);
+    expect(removeVowels('asdf')).toStrictEqual('sdf');
+    expect(removeVowels('why')).toStrictEqual('why');
+  });
+});
 
 // describe('Testing challenge 10', () => {
 //   test('It should return the string without vowels', () => {
