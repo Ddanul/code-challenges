@@ -16,9 +16,9 @@
 
 const howMuchPencil = (name) => {
   let result = [];
-  for(let i=0; i<=name.length; i++){
-      let sharpen = name.slice(i, name.length);
-      result.push(sharpen);
+  for (let i = 0; i <= name.length; i++) {
+    let sharpen = name.slice(i, name.length);
+    result.push(sharpen);
   }
   return result;
 };
@@ -33,7 +33,7 @@ const howMuchPencil = (name) => {
 // ------------------------------------------------------------------------------------------------
 
 const wordsToCharList = (input) => {
-  // Solution code here...
+  return input.split('');
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -210,14 +210,14 @@ describe('Testing challenge 1', () => {
   });
 });
 
-// describe('Testing challenge 2', () => {
-//   test('It should return an array of individual letters', () => {
-//     expect(wordsToCharList('Gregor')).toStrictEqual(['G','r','e','g','o','r']);
-//     expect(wordsToCharList('Gregor').length).toStrictEqual(6);
-//     expect(wordsToCharList('hooray')).toStrictEqual(['h','o','o','r','a','y']);
-//     expect(wordsToCharList('')).toStrictEqual([]);
-//   });
-// });
+describe('Testing challenge 2', () => {
+  test('It should return an array of individual letters', () => {
+    expect(wordsToCharList('Gregor')).toStrictEqual(['G', 'r', 'e', 'g', 'o', 'r']);
+    expect(wordsToCharList('Gregor').length).toStrictEqual(6);
+    expect(wordsToCharList('hooray')).toStrictEqual(['h', 'o', 'o', 'r', 'a', 'y']);
+    expect(wordsToCharList('')).toStrictEqual([]);
+  });
+});
 
 // describe('Testing challenge 3', () => {
 //   test('It should add up the numbers contained within the string', () => {
