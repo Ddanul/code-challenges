@@ -138,7 +138,21 @@ const getHouses = (arr) => {
 // ------------------------------------------------------------------------------------------------
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
+  arr.forEach( obj => {
+    let name = obj.name;
+    if(obj.name === character){
+      let children = getFrom(obj, 'values')[2];
+      console.log('children',children);
+      if(children.length > 0){
+        console.log('This is true!');
+        return true;
+      }else{
+        console.log('this be false');
+        return false;
+      }
+    }
+  });
+  
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -150,7 +164,16 @@ const hasChildrenValues = (arr, character) => {
 // ------------------------------------------------------------------------------------------------
 
 const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
+  arr.forEach( obj => {
+    let entry = getFrom(obj, 'entries');
+    if(entry[0][1]===character){
+      if(entry[3][1].length>0){
+        return true;
+      }else{
+        return false;
+      }
+    }
+  });
 }
 
 // ------------------------------------------------------------------------------------------------
