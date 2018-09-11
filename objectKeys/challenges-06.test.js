@@ -43,12 +43,20 @@ const getEntries = (obj) => {
 //
 // This will make our code more dynamic and DRY.
 // ------------------------------------------------------------------------------------------------
-const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+const courseInfo = {
+  name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
   topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
-  finalExam: true };
+  finalExam: true
+};
 
 const getFrom = (obj, property) => {
-  // Solution code here...
+  if (property === 'keys') {
+    return Object.keys(obj);
+  } else if (property === 'values') {
+    return Object.values(obj);
+  } else {
+    return Object.entries(obj);
+  }
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -106,7 +114,11 @@ let characters = [
 ]
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let count = 0;
+  arr.forEach(obj => {
+    count++;
+  });
+  return count;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -185,39 +197,41 @@ const houseSurvivors = (arr) => {
 // ------------------------------------------------------------------------------------------------
 
 describe('Tests using the course info object', () => {
-  const courseInfo = { name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks'},
+  const courseInfo = {
+    name: 'Code 301', duration: { dayTrack: '4 weeks', eveningTrack: '8 weeks' },
     topics: ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'],
-    finalExam: true };
+    finalExam: true
+  };
 
   describe('Testing challenge 1', () => {
     test('It should return the keys from an object', () => {
-      expect(getKeys(courseInfo)).toStrictEqual([ 'name', 'duration', 'topics', 'finalExam' ]);
+      expect(getKeys(courseInfo)).toStrictEqual(['name', 'duration', 'topics', 'finalExam']);
     });
   });
 
   describe('Testing challenge 2', () => {
     test('It should return the values from an object', () => {
-      expect(getValues(courseInfo)).toStrictEqual([ 'Code 301', { dayTrack: '4 weeks', eveningTrack: '8 weeks' }, [ 'SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming' ], true ]);
+      expect(getValues(courseInfo)).toStrictEqual(['Code 301', { dayTrack: '4 weeks', eveningTrack: '8 weeks' }, ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'], true]);
     });
   });
 
   describe('Testing challenge 3', () => {
     test('It should return the entries from an object', () => {
-      expect(getEntries(courseInfo)).toStrictEqual([ [ 'name', 'Code 301' ], [ 'duration', { dayTrack: '4 weeks', eveningTrack: '8 weeks' } ], [ 'topics', [ 'SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming' ] ], [ 'finalExam', true ] ]);
+      expect(getEntries(courseInfo)).toStrictEqual([['name', 'Code 301'], ['duration', { dayTrack: '4 weeks', eveningTrack: '8 weeks' }], ['topics', ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming']], ['finalExam', true]]);
     });
   });
 
   describe('Testing challenge 4', () => {
     test('It should return the keys from an object', () => {
-      expect(getFrom(courseInfo, 'keys')).toStrictEqual([ 'name', 'duration', 'topics', 'finalExam' ]);
+      expect(getFrom(courseInfo, 'keys')).toStrictEqual(['name', 'duration', 'topics', 'finalExam']);
     });
 
     test('It should return the values from an object', () => {
-      expect(getFrom(courseInfo, 'values')).toStrictEqual([ 'Code 301', { dayTrack: '4 weeks', eveningTrack: '8 weeks' }, [ 'SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming' ], true ]);
+      expect(getFrom(courseInfo, 'values')).toStrictEqual(['Code 301', { dayTrack: '4 weeks', eveningTrack: '8 weeks' }, ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming'], true]);
     });
 
     test('It should return the entries from an object', () => {
-      expect(getFrom(courseInfo, 'entries')).toStrictEqual([ [ 'name', 'Code 301' ], [ 'duration', { dayTrack: '4 weeks', eveningTrack: '8 weeks' } ], ['topics', [ 'SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming' ] ], [ 'finalExam', true ] ]);
+      expect(getFrom(courseInfo, 'entries')).toStrictEqual([['name', 'Code 301'], ['duration', { dayTrack: '4 weeks', eveningTrack: '8 weeks' }], ['topics', ['SMACSS', 'APIs', 'NodeJS', 'SQL', 'jQuery', 'functional programming']], ['finalExam', true]]);
     });
   });
 })
@@ -230,7 +244,7 @@ describe('Testing challenge 5', () => {
 
 describe('Testing challenge 6', () => {
   test('something specific', () => {
-    expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
+    expect(getHouses(characters)).toStrictEqual(['Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow']);
     expect(getHouses(characters).length).toStrictEqual(7);
   });
 });
@@ -257,13 +271,13 @@ describe('Testing challenge 8', () => {
 
 describe('Testing challenge 9', () => {
   test('It should return an object for each house containing the name and size', () => {
-    expect(houseSize(characters)).toStrictEqual([ { house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 } ]);
+    expect(houseSize(characters)).toStrictEqual([{ house: 'Stark', members: 7 }, { house: 'Arryn', members: 3 }, { house: 'Lannister', members: 5 }, { house: 'Targaryen', members: 5 }, { house: 'Tyrell', members: 4 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 }]);
     expect(houseSize(characters).length).toStrictEqual(7);
   });
 });
 
 describe('Testing challenge 10', () => {
   test('It should not include any deceased spouses', () => {
-    expect(houseSurvivors(characters)).toStrictEqual([ { house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, { house: 'Lannister', members: 4 }, { house: 'Targaryen', members: 4 }, { house: 'Tyrell', members: 3 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 } ]);
+    expect(houseSurvivors(characters)).toStrictEqual([{ house: 'Stark', members: 6 }, { house: 'Arryn', members: 2 }, { house: 'Lannister', members: 4 }, { house: 'Targaryen', members: 4 }, { house: 'Tyrell', members: 3 }, { house: 'Stark', members: 2 }, { house: 'Snow', members: 1 }]);
   });
 });
