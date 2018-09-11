@@ -50,13 +50,7 @@ const courseInfo = {
 };
 
 const getFrom = (obj, property) => {
-  if (property === 'keys') {
-    return Object.keys(obj);
-  } else if (property === 'values') {
-    return Object.values(obj);
-  } else {
-    return Object.entries(obj);
-  }
+  return Object[property](obj);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -114,11 +108,11 @@ let characters = [
 ]
 
 const totalCharacters = (arr) => {
-  let count = 0;
+  const newArr = [];
   arr.forEach(obj => {
-    count++;
+    newArr.push(getFrom(obj, 'keys'));
   });
-  return count;
+  return newArr.length;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -129,7 +123,11 @@ const totalCharacters = (arr) => {
 // ------------------------------------------------------------------------------------------------
 
 const getHouses = (arr) => {
-  // Solution code here...
+  const newArr = [];
+  arr.forEach( obj => {
+    newArr.push(getFrom(obj, 'values')[3]);
+  });
+  return newArr;
 }
 
 // ------------------------------------------------------------------------------------------------
