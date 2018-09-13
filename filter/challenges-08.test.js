@@ -87,9 +87,8 @@ const snorlaxData = {
 };
 
 const getBaseStatGreaterThan = (input, minBaseStat) => {
-  // Solution code here...
-};
-
+  return input.filter( obj => obj.baseStat > minBaseStat)
+  };
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 5
 //
