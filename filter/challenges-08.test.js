@@ -168,13 +168,8 @@ const getCharactersWithoutChildren = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const evenOddNumericValues = (input) => {
-  return input.filter( isNum => Number.isInteger(isNum)).map( num => {
-    if(num % 2 === 0){
-      return 'even';
-    }else{
-      return 'odd';
-    }
-  });
+  return input.filter( isNum => Number.isInteger(isNum)).map( num => (num%2===0)? 'even' : 'odd');
+
 };
 
 // ------------------------------------------------------------------------------------------------
