@@ -100,7 +100,7 @@ const getBaseStatGreaterThan = (input, minBaseStat) => {
 // ------------------------------------------------------------------------------------------------
 
 const getStatName = (input, minBaseStat) => {
-  // Solution code here...
+  return input.filter( obj => obj.baseStat > minBaseStat).map( thing => thing.stat.name);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -154,7 +154,7 @@ const characters = [
 ];
 
 const getCharactersWithoutChildren = (input) => {
-  // Solution code here...
+  return input.filter( obj => !obj.children);
 };
 
 // ------------------------------------------------------------------------------------------------
