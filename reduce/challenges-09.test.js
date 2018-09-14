@@ -117,7 +117,12 @@ const snorlaxData = {
 };
 
 const extractStat = (statName, input) => {
-  // Solution code here...
+  return input.reduce( (ans, obj) => {
+    if(obj.stat.name.match(statName)){
+      ans = obj;
+    }
+    return ans;
+  });
 };
 
 // ------------------------------------------------------------------------------------------------
