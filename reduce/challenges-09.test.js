@@ -147,7 +147,7 @@ const calculateAverage = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const extractChildren = input => {
-  // Solution code here...
+  return input.filter(obj => /a/.test(obj.name)).reduce( (ans, char) => (char.children)? ans.concat(char.children):ans, []);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -160,7 +160,7 @@ const extractChildren = input => {
 // ------------------------------------------------------------------------------------------------
 
 const reversedString = (input) => {
-  // Solution code here...
+  input.reduce( (ans, char) => )
 };
 
 // ------------------------------------------------------------------------------------------------
