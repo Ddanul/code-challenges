@@ -133,7 +133,7 @@ const extractStat = (statName, input) => {
 // ------------------------------------------------------------------------------------------------
 
 const calculateAverage = (input) => {
-  // Solution code here...
+  return ((input.reduce( (ans, num) => ans+num ))/input.length);
 };
 
 // ------------------------------------------------------------------------------------------------
