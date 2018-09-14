@@ -68,7 +68,12 @@ const characters = [
 ];
 
 const countNumberOfChildren = (input) => {
-  // Solution code here...
+  return input.reduce( (count, obj) => {
+    if(obj.children){
+      count += obj.children.length;
+    }
+    return count;
+  }, 0);
 };
 
 // ------------------------------------------------------------------------------------------------
