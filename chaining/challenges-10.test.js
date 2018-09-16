@@ -42,7 +42,7 @@ const totalSum = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const divisibleByFiveTwoToThePower = (input) => {
-  // Solution code here...
+  return input.map( arr => arr.filter(num => Number.isInteger(num) && num%5===0).map(num => Math.pow(2,num)));
 };
 
 // ------------------------------------------------------------------------------------------------
