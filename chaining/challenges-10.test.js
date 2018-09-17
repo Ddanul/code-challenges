@@ -13,8 +13,8 @@
 // ------------------------------------------------------------------------------------------------
 
 const count = (target, input) => {
-    return input.reduce( (acc, cur) => acc.concat(cur), [] ).reduce( (count, num) => num===target ? count+1:count, 0);
-  };
+  return input.reduce((acc, cur) => acc.concat(cur), []).reduce((count, num) => num === target ? count + 1 : count, 0);
+};
 
 // ------------------------------------------------------------------------------------------------
 // CHALLENGE 2
@@ -26,7 +26,7 @@ const count = (target, input) => {
 // ------------------------------------------------------------------------------------------------
 
 const totalSum = (input) => {
-  return input.reduce( (acc, cur) => acc.concat(cur), []).reduce( (count, num) => count+num);
+  return input.reduce((acc, cur) => acc.concat(cur), []).reduce((count, num) => count + num);
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ const totalSum = (input) => {
 // ------------------------------------------------------------------------------------------------
 
 const divisibleByFiveTwoToThePower = (input) => {
-  return input.map( arr => arr.filter(num => Number.isInteger(num) && num%5===0).map(num => Math.pow(2,num)));
+  return input.map(arr => arr.filter(num => Number.isInteger(num) && num % 5 === 0).map(num => Math.pow(2, num)));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -74,7 +74,8 @@ let starWarsData = [{
   skin_color: 'gold',
   eye_color: 'yellow',
   birth_year: '112BBY',
-  gender: 'n/a'},
+  gender: 'n/a'
+},
 {
   name: 'R2-D2',
   height: '96',
@@ -107,7 +108,15 @@ let starWarsData = [{
 }]
 
 let findMaleAndFemale = (data) => {
-  // Solution code here...
+  return data.reduce((ans, obj) => {
+    if (obj.gender === 'male' || obj.gender === 'female') {
+      console.log(obj.gender);
+      console.log(ans + obj.name + " and ");
+      return ans+obj.name+" and ";
+    } else {
+      return ans;
+    }
+  }, '');
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -147,7 +156,7 @@ describe('Testing challenge 1', () => {
 
 describe('Testing challenge 2', () => {
   test('It should add all the numbers in the arrays', () => {
-    const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7],[9, 2, 3, 6, ]];
+    const nums = [[1, 2, 3, 4, 5], [6, 7, 2, 4, 5, 7], [9, 2, 3, 6,]];
 
     expect(totalSum(nums)).toStrictEqual(66);
   });
@@ -155,22 +164,22 @@ describe('Testing challenge 2', () => {
 
 describe('Testing challenge 3', () => {
   test('It should return numbers divisible by five, then raise two to the power of the resulting numbers', () => {
-    expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([ [ 1024, 1048576, 32 ], [ 32 ], [ 1024 ] ]);
+    expect(divisibleByFiveTwoToThePower([[10, 20, 5, 4], [5, 6, 7, 9], [1, 10, 3]])).toStrictEqual([[1024, 1048576, 32], [32], [1024]]);
   });
 
   test('It should return an empty array if none of the numbers are divisible by five', () => {
-    expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10 , 15]])).toStrictEqual([ [], [ 32, 1024, 32768 ] ]);
+    expect(divisibleByFiveTwoToThePower([[1, 2, 3], [5, 10, 15]])).toStrictEqual([[], [32, 1024, 32768]]);
   });
 
   test('It should return an empty array if the values are not numbers', () => {
-    expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10' , '15'], [5]])).toStrictEqual([ [], [], [ 32 ] ]);
+    expect(divisibleByFiveTwoToThePower([['one', 'two', 'five'], ['5', '10', '15'], [5]])).toStrictEqual([[], [], [32]]);
   });
 });
 
 describe('Testing challenge 4', () => {
   test('It should return only characters that are male or female', () => {
     expect(findMaleAndFemale(starWarsData)).toStrictEqual('Luke Skywalker and Darth Vader and Leia Organa');
-    expect(findMaleAndFemale([{name: 'person', gender: 'female'}, {gender: 'lol'}, {name: 'persontwo', gender: 'male'}])).toStrictEqual('person and persontwo');
+    expect(findMaleAndFemale([{ name: 'person', gender: 'female' }, { gender: 'lol' }, { name: 'persontwo', gender: 'male' }])).toStrictEqual('person and persontwo');
   });
 });
 
