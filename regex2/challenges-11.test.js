@@ -72,7 +72,8 @@ const validateEmail = (email) => {
 // ------------------------------------------------------------------------------------------------
 
 const validatePhoneNumber = (phoneNumber) => {
-  // Solution code here...
+  let regex = /^(\(\d\d\d\))?(\d\d\d)?[-\s]?\d\d\d[-\s]?\d\d\d\d$/;
+  return regex.test(phoneNumber);
 };
 
 
