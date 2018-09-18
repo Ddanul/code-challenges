@@ -24,7 +24,8 @@ const validatePin = (pin) => {
 // ------------------------------------------------------------------------------------------------
 
 const findTagNames = elements => {
-  // Solution code here...
+  let regex = /\/[a-z][a-z0-9]?[a-z]?/g;
+  return elements.reduce((acc, cur) => acc.concat(cur.match(regex)),[]);
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -100,10 +101,10 @@ describe('Testing challenge 1', () => {
 
 describe('Testing challenge 2', () => {
   test('It should return the closing tags', () => {
-    expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/p' ]);
+    expect(findTagNames(['<h1>Hello, world!</h1>', '<p>Welcome to my site</p>'])).toStrictEqual(['/h1', '/p']);
   });
   test('It should work if there are multiple closing tags in a single string', () => {
-    expect(findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])).toStrictEqual([ '/h1', '/div', '/p' ]);
+    expect(findTagNames(['<div><h1>Hello, world!</h1></div>', '<p>Welcome to my site</p>'])).toStrictEqual(['/h1', '/div', '/p']);
   });
 });
 
@@ -124,7 +125,7 @@ describe('Testing challenge 3', () => {
     expect(validateEmail('joe.schmoe@codefellows.net')).toBeTruthy();
   });
 
-  test ('It should fail things that aren\'t email addresses', () => {
+  test('It should fail things that aren\'t email addresses', () => {
     expect(validateEmail('justastring')).toBeFalsy();
     expect(validateEmail('missing@adomain')).toBeFalsy();
     expect(validateEmail('@noname.com')).toBeFalsy();
