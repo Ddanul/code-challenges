@@ -41,10 +41,10 @@ const alphabetize = (strings) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortByLength = (strings) => {
-  return strings.sort((a,b) => {
-    if(a.length>b.length){
+  return strings.sort((a, b) => {
+    if (a.length > b.length) {
       return 1;
-    } else if (a.length<b.length){
+    } else if (a.length < b.length) {
       return -1;
     } else {
       return 0;
@@ -62,10 +62,10 @@ const sortByLength = (strings) => {
 // ------------------------------------------------------------------------------------------------
 
 const alphabetizeBetter = (strs) => {
-  return strs.sort((a,b) => {
-    if(a.toLowerCase()>b.toLowerCase()){
+  return strs.sort((a, b) => {
+    if (a.toLowerCase() > b.toLowerCase()) {
       return 1;
-    } else if (a.toLowerCase()<b.toLowerCase()){
+    } else if (a.toLowerCase() < b.toLowerCase()) {
       return -1;
     } else {
       return 0;
@@ -88,10 +88,10 @@ const alphabetizeBetter = (strs) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortByPrice = (objs) => {
-  return objs.sort((a,b) => {
-    if(a.price>b.price){
+  return objs.sort((a, b) => {
+    if (a.price > b.price) {
       return 1;
-    }else if (a.price<b.price){
+    } else if (a.price < b.price) {
       return -1;
     } else {
       return 0;
@@ -109,8 +109,8 @@ const sortByPrice = (objs) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortNumbersByLength = (nums) => {
-  return nums.sort((a,b) => {
-    return a.toString().length>b.toString().length;
+  return nums.sort((a, b) => {
+    return a.toString().length > b.toString().length;
   });
 };
 
@@ -135,7 +135,7 @@ const people = [
 ];
 
 const sortPeople = (people) => {
-  return people.sort((a,b) => {
+  return people.sort((a, b) => {
     return a.lastName > b.lastName;
   });
 };
@@ -152,18 +152,18 @@ const sortPeople = (people) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortPeopleBetter = (people) => {
-  return people.sort((a,b) => {
-    if(a.lastName > b.lastName){
+  return people.sort((a, b) => {
+    if (a.lastName > b.lastName) {
       return 1;
-    }else if(a.lastName < b.lastName){
+    } else if (a.lastName < b.lastName) {
       return -1;
-    } else if(a.firstName > b.firstName){
+    } else if (a.firstName > b.firstName) {
       return 1;
-    } else if(a.firstName < b.firstName){
+    } else if (a.firstName < b.firstName) {
       return -1;
-    } else if(a.age > b.age){
+    } else if (a.age > b.age) {
       return 1;
-    } else{
+    } else {
       return -1;
     }
   });
@@ -195,15 +195,16 @@ const meetings = [
 ];
 
 const sortMeetingsByDay = (meetings) => {
+
   const daysOfTheWeek = {
-    "Monday"    : 0,
-    "Tuesday"   : 1,
-    "Wednesday" : 2,
-    "Thursday"  : 3,
-    "Friday"    : 4,
+    "Monday": 0,
+    "Tuesday": 1,
+    "Wednesday": 2,
+    "Thursday": 3,
+    "Friday": 4,
   };
 
-  return meetings.sort((a,b) => {
+  return meetings.sort((a, b) => {
     return daysOfTheWeek[a.dayOfWeek] - daysOfTheWeek[b.dayOfWeek];
   })
 };
@@ -218,7 +219,26 @@ const sortMeetingsByDay = (meetings) => {
 // ------------------------------------------------------------------------------------------------
 
 const sortSchedule = (meetings) => {
-  // Solution code here...
+
+  const daysOfTheWeek = {
+    "Monday": 0,
+    "Tuesday": 1,
+    "Wednesday": 2,
+    "Thursday": 3,
+    "Friday": 4,
+  };
+
+  return meetings.sort((a, b) => {
+    if (daysOfTheWeek[a.dayOfWeek] > daysOfTheWeek[b.dayOfWeek]) {
+      return 1;
+    } else if (daysOfTheWeek[a.dayOfWeek] < daysOfTheWeek[b.dayOfWeek]) {
+      return -1;
+    } else if ((a.end - a.start) > (b.end - b.start)) {
+      return 1;
+    } else {
+      return -1;
+    };
+  });
 };
 
 // ------------------------------------------------------------------------------------------------
