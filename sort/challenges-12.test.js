@@ -111,7 +111,7 @@ const sortByPrice = (objs) => {
 const sortNumbersByLength = (nums) => {
   return nums.sort((a,b) => {
     return a.toString().length>b.toString().length;
-  })
+  });
 };
 
 // -----------------------------------------------------------------------------------------------
@@ -135,7 +135,9 @@ const people = [
 ];
 
 const sortPeople = (people) => {
-  // Solution code here...
+  return people.sort((a,b) => {
+    return a.lastName > b.lastName;
+  });
 };
 
 // ------------------------------------------------------------------------------------------------
