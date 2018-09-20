@@ -34,7 +34,12 @@ const findHappiness = (strs) => {
 // ------------------------------------------------------------------------------------------------
 
 const standardizePhoneNumbers = (phoneNumbers) => {
-  // Solution code here...
+  return phoneNumbers.map( num => {
+    let newNum = num.substring(1,4);
+    newNum += num.substring(6,9);
+    newNum += num.substring(10,14);
+    return newNum;
+  });
 };
 
 // ------------------------------------------------------------------------------------------------
