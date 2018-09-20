@@ -156,7 +156,11 @@ const sortByDay = (eventStrings) => {
 // ------------------------------------------------------------------------------------------------
 
 const characterByIndex = (strs) => {
-  // Solution code here...
+  const newArr = [];
+  strs.forEach( (string, idx) => {
+    newArr.push(string.charAt(idx));
+  });
+  return newArr;
 };
 
 // ------------------------------------------------------------------------------------------------
