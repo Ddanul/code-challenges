@@ -122,7 +122,30 @@ const unenrollBrook = (roster) => {
 const daysOfWeek = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
 const sortByDay = (eventStrings) => {
-  // Solution code here...
+  return eventStrings.reduce( (arr, string) => {
+    if(string.includes('Monday')){
+      arr[0].push(string);
+    }
+    if(string.includes('Tuesday')){
+      arr[1].push(string);
+    }
+    if(string.includes('Wednesday')){
+      arr[2].push(string);
+    }
+    if(string.includes('Thursday')){
+      arr[3].push(string);
+    }
+    if(string.includes('Friday')){
+      arr[4].push(string);
+    }
+    if(string.includes('Saturday')){
+      arr[5].push(string);
+    }
+    if(string.includes('Sunday')){
+      arr[6].push(string);
+    }
+    return arr;
+  },[[],[],[],[],[],[],[]]);
 };
 
 // ------------------------------------------------------------------------------------------------
