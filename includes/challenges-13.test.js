@@ -103,7 +103,7 @@ const allAnything = (strs, target) => {
 // ------------------------------------------------------------------------------------------------
 
 const unenrollBrook = (roster) => {
-  // Solution code here...
+  return roster.map(arr => arr.filter( string => !string.includes('Brook')));
 };
 
 // ------------------------------------------------------------------------------------------------
