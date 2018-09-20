@@ -11,7 +11,7 @@
 // ------------------------------------------------------------------------------------------------
 
 const firstLetters = (strs) => {
-  return strs.map( string => string.substring(0,1));
+  return strs.map(string => string.substring(0, 1));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -23,7 +23,7 @@ const firstLetters = (strs) => {
 // ------------------------------------------------------------------------------------------------
 
 const findHappiness = (strs) => {
-  return strs.filter( happy => happy.includes(':)'));
+  return strs.filter(happy => happy.includes(':)'));
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -34,10 +34,10 @@ const findHappiness = (strs) => {
 // ------------------------------------------------------------------------------------------------
 
 const standardizePhoneNumbers = (phoneNumbers) => {
-  return phoneNumbers.map( num => {
-    let newNum = num.substring(1,4);
-    newNum += num.substring(6,9);
-    newNum += num.substring(10,14);
+  return phoneNumbers.map(num => {
+    let newNum = num.substring(1, 4);
+    newNum += num.substring(6, 9);
+    newNum += num.substring(10, 14);
     return newNum;
   });
 };
@@ -50,7 +50,11 @@ const standardizePhoneNumbers = (phoneNumbers) => {
 // ------------------------------------------------------------------------------------------------
 
 const onlyOddChars = (str) => {
-  // Solution code here...
+  let newStr = '';
+  for (let i = 1; i < str.length; i += 2) {
+    newStr += str[i];
+  }
+  return newStr;
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -147,7 +151,7 @@ describe('Testing challenge 1', () => {
   test('It should return the first letter of each element of the array', () => {
     const words = ['apple', 'banana', 'cantaloupe'];
 
-    expect(firstLetters(words)).toStrictEqual(['a','b','c']);
+    expect(firstLetters(words)).toStrictEqual(['a', 'b', 'c']);
   });
 });
 
